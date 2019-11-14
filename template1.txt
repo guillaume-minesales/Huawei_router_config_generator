@@ -4,11 +4,11 @@
  snmp-agent sys-info version v2c v3
  snmp-agent
 #
-acl ipv6 name SNMP_BLI 2997
- rule 10 permit source 2A01:A5E0::/52
+acl ipv6 name SNMP 2997
+ rule 10 permit source 2001:A5EE::/52
 #
 acl ipv6 name SSH-TELNET 3999
- rule 10 permit ipv6 source 2A01:A5E0::/52
+ rule 10 permit ipv6 source 2001:A5EE::/52
 #
   clock timezone CEST add 01:00:00
   clock daylight-saving-time CEST repeating 2:0 last Sunday March 2:0 last Sunday October 01:00 2000 2099
@@ -28,16 +28,8 @@ vlan batch 10
 vlan 10
  description ** INTERCO WAN CPE **
 #
-acl name SNMP_BLI 2997
- rule 10 permit source 185.50.131.72 0
- rule 20 permit source 10.18.0.6 0
- rule 30 permit vpn-instance MGMT source 10.18.0.0 0.0.0.255
-#
 acl name SSH_TELNET 3999
- rule 10 permit ip source 185.50.131.0 0.0.0.255
- rule 20 permit ip source 185.50.129.10 0
- rule 30 permit ip source 185.50.130.0 0.0.0.255
- rule 40 permit ip source 192.168.71.16 0.0.0.3
+ rule 10 permit ip source 10.0.0.0 0.0.0.255
 #
 aaa
  authentication-scheme default
